@@ -67,7 +67,7 @@ const MostViewed = () => {
     return (
         <section className='container '>
             <h2>Most Viewed</h2>
-            <div className='row stock-clr-row'  >
+            <div className='row most-viewed-row'  >
                 <Slider {...settings}>
                     {
                         mostViewed.map((single) => {

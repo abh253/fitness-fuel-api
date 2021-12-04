@@ -28,7 +28,7 @@ h2{
 .card,.card-body{
     background-color: #f3e0c1;
 }
-.card-body{
+.stock-clr-row .card-body,.most-viewed-row .card-body{
     height: 6.5rem;
 }
 /* .stock-clr-row{
