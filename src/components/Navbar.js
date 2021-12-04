@@ -7,7 +7,7 @@ const Navbar = () => {
 
 
     
-    return <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    return <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:'#f4f1de'}}>
     <div className="container-fluid">
       <a className="navbar-brand" href="#">Fitness fuel</a>
       <button className="navbar-toggler" type="button" onClick={()=>setToggle(!toggle)} aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

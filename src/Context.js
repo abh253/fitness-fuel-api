@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react'
-  const apiLink = '/app/home?format=json';
+import local_data from './data'
+
+const apiLink = 'https://dev-api.fitnessfuel360.com/app/home?format=json';
 const axios = require('axios');
 
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
+    const [loading,setLoading]=useState(true);
     const [banner, setBanner] = useState([]);
     const [article, setArticle] = useState([]);
     const [popCats, setPopCats] = useState([]);
     const [stockClr, setStockClr] = useState([]);
     const [subCats, setSubCats] = useState([]);
-    
+    const [popBrands,setPopBrands]=useState([]);
+    const [mostViewed,setMostViewed]=useState([]);
     const fetchData = async () => {
         try {
-            const response = await fetch(apiLink);  
-            console.log(response);
-            const apiData = await response.json();
-            // const apiData = response.data;
-
+            // const response = await fetch(apiLink);  
+            // const apiData = await response.json();
+            // console.log(local_data.sections);
+            const apiData=local_data;
             const { sections } = apiData;
 
             const newBanner = sections.find((single) => {
@@ -47,12 +50,13 @@ const AppProvider = ({ children }) => {
             const newPopBrands = sections.find((single) => {
                 return single.key === 'Pop_brands';
             });
-
+            setPopBrands(newPopBrands.items);
 
             const newMostViewed = sections.find((single) => {
                 return single.key === 'Most Viewed';
             });
-
+            setMostViewed(newMostViewed.items);
+            setLoading(false);
 
         } catch (e) {
             console.log(e);
@@ -67,7 +71,11 @@ const AppProvider = ({ children }) => {
             article,
             banner,
             popCats,
-            stockClr
+            stockClr,
+            subCats,
+            popBrands,
+            mostViewed,
+            loading
 
         }}>
             {children}

@@ -1,0 +1,30 @@
+.pop-categories{
+    text-align: center;
+    
+    border-radius:9999px;
+    color: white;
+    background-color: #e07a5f;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    display: table;
+}
+.pop-categories span{
+    display: table-cell;
+    vertical-align: middle;
+}
+.pop-sub-categories{
+    background-color: #81b29a;
+}
+.pop-brand-categories{
+    background-color: #3d405b;
+}
+h2{
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+}
+/* .stock-clr-row{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+} */

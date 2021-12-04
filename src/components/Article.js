@@ -6,6 +6,8 @@ const Article = () => {
 
     return (
         <div className='container mx-auto mt-2'>
+            <h2>Articles</h2>
+
             <div className='row justify-content-center'>
                 {
                     article.map((single, index) => {
@@ -14,7 +16,7 @@ const Article = () => {
                                 <img src={single.image} className="card-img-top" alt="article" />
                                 <div className="card-body d-flex flex-column">
                                     <h5 className="card-title fs-6">{single.title}</h5>
-                                    <p className="card-text fs-6">{single.sub_title.slice(0,50)}...</p>
+                                    <p className="card-text fs-6">{single.sub_title.slice(0, 50)}...</p>
                                     <a href="#" className="btn btn-primary mt-auto">Read more</a>
                                 </div>
                             </div>
