@@ -7,9 +7,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <Article />
 
       <Banner />
+      <Article />
+
     </>
   );
 }

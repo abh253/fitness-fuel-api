@@ -13,8 +13,8 @@ const Article = () => {
                             <div className="card mx-2 col-10 col-md col-sm-5 " key={index} style={{ width: "" }}>
                                 <img src={single.image} className="card-img-top" alt="article" />
                                 <div className="card-body d-flex flex-column">
-                                    <h5 className="card-title">{single.title}</h5>
-                                    <p className="card-text">{single.sub_title}</p>
+                                    <h5 className="card-title fs-6">{single.title}</h5>
+                                    <p className="card-text fs-6">{single.sub_title.slice(0,50)}...</p>
                                     <a href="#" className="btn btn-primary mt-auto">Read more</a>
                                 </div>
                             </div>

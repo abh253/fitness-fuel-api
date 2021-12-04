@@ -1,43 +1,60 @@
-import React, { useEffect,useState } from 'react'
-const apiLink='https://dev-api.fitnessfuel360.com/app/home?format=json';
+import React, { useEffect, useState } from 'react'
+const apiLink = 'https://dev-api.fitnessfuel360.com/app/home?format=json';
+const axios = require('axios');
 
-const AppContext=React.createContext();
-const AppProvider = ({children}) => {
-    const [banner,setBanner]=useState([]);
-    const [article,setArticle]=useState([]);
-    const [popCats,setPopCats]=useState([]);
-    const [stockClr,setStockClr]=useState([]);
+const AppContext = React.createContext();
+const AppProvider = ({ children }) => {
+    const [banner, setBanner] = useState([]);
+    const [article, setArticle] = useState([]);
+    const [popCats, setPopCats] = useState([]);
+    const [stockClr, setStockClr] = useState([]);
+    const [subCats, setSubCats] = useState([]);
+    
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(apiLink);
+            // console.log(response);
+            // const apiData = await response.json();
+            const apiData = response.data;
 
+            const { sections } = apiData;
 
-    const fetchData=async ()=>{
-        try{
-            const response=await fetch(apiLink);
-            const apiData=await response.json();
-            const {sections}=apiData;
-            
-            const newBanner=sections.find((single)=>{
-                return single.key==='banner';
+            const newBanner = sections.find((single) => {
+                return single.key === 'banner';
             })
             setBanner(newBanner.items);
 
-            const newArticle=sections.find((single)=>{
-                return single.item_type==='article';
+            const newArticle = sections.find((single) => {
+                return single.item_type === 'article';
             });
             setArticle(newArticle.items);
 
-            const newPopCats=sections.find((single)=>{
-                return single.key==='Pop_cats';
+            const newPopCats = sections.find((single) => {
+                return single.key === 'Pop_cats';
             })
             setPopCats(newPopCats.items);
 
-            const newStockClr=sections.find((single)=>{
-                return single.key==='Stock_Clearance';
+            const newStockClr = sections.find((single) => {
+                return single.key === 'Stock_Clearance';
             });
-            setArticle(newStockClr.items);
+            setStockClr(newStockClr.items);
+
+            const newSubCats = sections.find((single) => {
+                return single.key === 'Pop_subcats';
+            });
+            setSubCats(newSubCats.items);
+
+            const newPopBrands = sections.find((single) => {
+                return single.key === 'Pop_brands';
+            });
 
 
-            
-        }catch(e){
+            const newMostViewed = sections.find((single) => {
+                return single.key === 'Most Viewed';
+            });
+
+
+        } catch (e) {
             console.log(e);
         }
     }
@@ -58,4 +75,4 @@ const AppProvider = ({children}) => {
     )
 }
 
-export {AppContext,AppProvider}
+export { AppContext, AppProvider }
