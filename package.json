@@ -2,7 +2,7 @@
   "name": "fitness-fuel-api",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://sad-noether-e8e308.netlify.app",
+  "proxy": "https://dev-api.fitnessfuel360.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",

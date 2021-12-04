@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-  const apiLink = 'https://dev-api.fitnessfuel360.com/app/home?format=json';
+  const apiLink = '/app/home?format=json';
 const axios = require('axios');
 
 const AppContext = React.createContext();
@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
     const fetchData = async () => {
         try {
             const response = await fetch(apiLink);  
+            console.log(response);
             const apiData = await response.json();
             // const apiData = response.data;
 
