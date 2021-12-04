@@ -75,7 +75,7 @@ const MostViewed = () => {
                                 <div style={{height:'100px',overflow:'hidden'}} className='d-flex justify-content-center'>
                                 <img src={single.image || no_img} style={{ width: '100px' }} className="card-img-top" alt="" />
                                 </div>
-                                <div className="card-body p-0" sytle={{height:'6.5rem'}}>
+                                <div className="card-body p-0">
                                     <h5 className="card-title fs-6">{single.name}</h5>
                                     <p className="card-text fs-7">{single.brand}</p>
                                 </div>

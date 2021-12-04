@@ -24,6 +24,13 @@ h2{
     margin-top: 4rem;
     margin-bottom: 1rem;
 }
+
+.card,.card-body{
+    background-color: #f3e0c1;
+}
+.card-body{
+    height: 6.5rem;
+}
 /* .stock-clr-row{
     flex-wrap: nowrap;
     overflow-x: auto;
